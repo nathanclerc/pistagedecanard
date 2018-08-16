@@ -1,0 +1,84 @@
+table{
+	width: 100%;
+	text-align: center;
+	border: 2px solid black;
+	border-collapse:collapse;
+}
+#contain {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+#adduck {
+	background-color: blue;
+	color: white;
+	height: 40px;
+	border-radius: 30px;
+	font-weight: bold;
+	border: none;
+}
+a {
+	margin: 1%;
+}
+th, td {
+	border:1px solid black;
+	width:20%;
+	height: 30px;
+}
+th {
+	background-color: #98c2d4;
+}
+#bouton{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+#accueil {
+	background-color: blue;
+	color: white;
+	height: 30px;
+	border-radius: 30px;
+	font-weight: bold;
+	border: none;
+	margin: 2%;
+}
+#duck {
+	background-color: blue;
+	color: white;
+	height: 30px;
+	border-radius: 30px;
+	font-weight: bold;
+	border: none;
+	margin: 2%;
+}
+#champs {
+	display: flex;
+	flex-direction: column;
+}
+#etage1 {
+	display: flex;
+	flex-direction: row;
+}
+#etage1 > div, #etage2 > div{
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	width: 100%;
+	align-items: center;
+	margin: 2%;
+}
+#etage2 {
+	display: flex;
+	flex-direction: row;
+}
+#formulaire {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 5%;
+}
+form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
