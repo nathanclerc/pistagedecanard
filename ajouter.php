@@ -75,7 +75,7 @@ if(!empty($_POST['ajouter'])){
 		$time = $_POST['jour'] . ' ' . $_POST['heure'];
 		try {
 			$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-			$bdd = new PDO('mysql:host=localhost;dbname=canardVolant;charset=utf8', 'simoccauch19','azerty', $pdo_options);
+			$bdd = new PDO('mysql:host=localhost;dbname=canardVolant;charset=utf8', 'x','x', $pdo_options);
 
 			$req = $bdd->prepare('INSERT INTO infoCanard(lieu, jour, race, couleur)
 				VALUES(:lieu, :jour, :race, :couleur)');
