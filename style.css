@@ -3,11 +3,13 @@ table{
 	text-align: center;
 	border: 2px solid black;
 	border-collapse:collapse;
+	margin-top: 2%;
 }
 #contain {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	padding: 2%;
 }
 #adduck {
 	background-color: blue;
@@ -16,9 +18,7 @@ table{
 	border-radius: 30px;
 	font-weight: bold;
 	border: none;
-}
-a {
-	margin: 1%;
+	cursor: pointer;
 }
 th, td {
 	border:1px solid black;
@@ -28,10 +28,13 @@ th, td {
 th {
 	background-color: #98c2d4;
 }
+
 #bouton{
 	display: flex;
 	flex-direction: row;
-	align-items: center;
+	justify-content: space-around;
+	width: 15%;
+	margin: 2%;
 }
 #accueil {
 	background-color: blue;
@@ -40,7 +43,7 @@ th {
 	border-radius: 30px;
 	font-weight: bold;
 	border: none;
-	margin: 2%;
+	cursor: pointer;
 }
 #duck {
 	background-color: blue;
@@ -49,36 +52,39 @@ th {
 	border-radius: 30px;
 	font-weight: bold;
 	border: none;
-	margin: 2%;
+	cursor: pointer;
 }
 #champs {
 	display: flex;
 	flex-direction: column;
+	width: 100%;
 }
 #etage1 {
 	display: flex;
 	flex-direction: row;
+	justify-content: center;
 }
 #etage1 > div, #etage2 > div{
 	display: flex;
 	flex-direction: column;
 	text-align: center;
-	width: 100%;
-	align-items: center;
+	justify-content: space-around;
 	margin: 2%;
 }
 #etage2 {
 	display: flex;
 	flex-direction: row;
+	justify-content: center;
 }
 #formulaire {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 5%;
+	padding-top: 5%;
 }
 form {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	width: 100%;
 }

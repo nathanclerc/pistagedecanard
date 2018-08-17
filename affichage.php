@@ -6,7 +6,7 @@ try {
 } catch (Exception $e) {
 	die('Erreur:'.$e->getMessage());
 }
-$reponse = $bdd->query('SELECT * FROM infoCanard') ;
+$reponse = $bdd->query('SELECT * FROM infoCanard ORDER BY jour DESC') ;
 ?>
 
 <!DOCTYPE html>
@@ -22,14 +22,15 @@ $reponse = $bdd->query('SELECT * FROM infoCanard') ;
 		<table id="tableau">
 			<thead>
 				<th>Lieu</th>
-				<th>Date</th>
+				<th>Date/Heure</th>
 				<th>Race</th>
 				<th>Couleur</th>
 			</thead>
 			<tbody>
 				<?php
 				while($donnees=$reponse->fetch()){
-					echo '<tr><td>' . $donnees['lieu'] .'<td>' . $donnees['jour']
+					$temps = date('d-m-Y H:i', strtotime($donnees['jour']));
+					echo '<tr><td>' . $donnees['lieu'] .'<td>' . $temps
 					. '<td>' . $donnees['race'] .'<td>' . $donnees['couleur'];
 				}
 				?>

@@ -4,13 +4,6 @@
 	<meta charset="utf-8">
 	<title>J'en vois un!</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<script type="text/javascript">if ("geolocation" in navigator) {
-		navigator.geolocation.getCurrentPosition(function(position) {
-			console.log(position.coords.latitude, position.coords.longitude);
-		});
-	} else {
-		alert("Le service de géolocalisation n'est pas disponible sur votre ordinateur.");
-	}</script>
 </head>
 <body>
 	<div id="formulaire">
@@ -23,10 +16,20 @@
 					</div>
 					<div>
 						<label>Date</label>
-						<input type="date" name="jour">
+						<?php
+						$date = date('Y-m-d');
+						echo "<input type='date' name='jour' value='$date'>";
+						?>
 					</div>
 				</div>
 				<div id="etage2">
+					<div>
+						<label>Heure</label>
+						<?php
+						$heure = date('H:i');
+						echo "<input type='time' name='heure' value='$heure'>";
+						?>
+					</div>
 					<div>
 						<label>Race</label>
 						<select name="race">
@@ -52,7 +55,9 @@
 				</div>
 			</div>
 			<div id="bouton">
-				<a href="affichage.php"><button id="accueil">Accueil</button></a>
+				<form method="POST" action="affichage.php">
+					<button name="accueil" id="accueil" value="Accueil">Accueil</button>
+				</form>
 				<button type="submit" name="ajouter" id="duck" value="Ajouter">Ajouter</button>
 			</div>
 		</form>
@@ -61,11 +66,13 @@
 </html>
 
 <?php
-$date = date('d-m-Y H:i:s');
-echo $date;
+if(!empty($_POST['accueil'])){
+	header('Location: affichage.php');
+}
+
 if(!empty($_POST['ajouter'])){
 	if (!empty($_POST['lieu']) && !empty($_POST['jour']) && !empty($_POST['race']) && !empty($_POST['couleur'])){
-
+		$time = $_POST['jour'] . ' ' . $_POST['heure'];
 		try {
 			$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
 			$bdd = new PDO('mysql:host=localhost;dbname=canardVolant;charset=utf8', 'simoccauch19','azerty', $pdo_options);
@@ -74,7 +81,7 @@ if(!empty($_POST['ajouter'])){
 				VALUES(:lieu, :jour, :race, :couleur)');
 			$req->execute(array(
 				':lieu' => $_POST['lieu'],
-				':jour' => $date,
+				':jour' => $time,
 				':race' => $_POST['race'],
 				':couleur' => $_POST['couleur']
 			));
@@ -85,7 +92,7 @@ if(!empty($_POST['ajouter'])){
 			die();
 		}
 	}else{
-		echo  "vide"; 
+		echo  "Veuillez remplir tout les champs."; 
 	}
 }
 ?>
